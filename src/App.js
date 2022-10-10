@@ -1,6 +1,10 @@
 import "./App.css";
 import React from "react";
 
+export const replaceCamelWithSpaces = (text) => {
+  return text.replace(/\B([A-Z])\B/g, " $1");
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
