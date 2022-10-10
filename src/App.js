@@ -15,8 +15,15 @@ class App extends React.Component {
 
   onCheckboxClick = () => {
     this.state.checked === true
-      ? this.setState({ checked: false })
-      : this.setState({ checked: true });
+      ? this.setState({
+          checked: false,
+          previousColor: this.state.currentColor,
+          currentColor: "gray",
+        })
+      : this.setState({
+          checked: true,
+          currentColor: this.state.previousColor,
+        });
   };
 
   render() {
@@ -30,10 +37,12 @@ class App extends React.Component {
           Change to {this.state.currentColor === "blue" ? "red" : "blue"}
         </button>
         <input
+          id="disable-button-checkbox"
           type="checkbox"
           defaultChecked={this.state.checked}
           onClick={this.onCheckboxClick}
         />
+        <label htmlFor="disable-button-checkbox">Disable button</label>
       </div>
     );
   }
