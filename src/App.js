@@ -8,13 +8,13 @@ export const replaceCamelWithSpaces = (text) => {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentColor: "blue", checked: true };
+    this.state = { currentColor: "MediumVioletRed", checked: true };
   }
 
   onButtonClick = () => {
-    this.state.currentColor === "blue"
-      ? this.setState({ currentColor: "red" })
-      : this.setState({ currentColor: "blue" });
+    this.state.currentColor === "MediumVioletRed"
+      ? this.setState({ currentColor: "MidnightBlue" })
+      : this.setState({ currentColor: "MediumVioletRed" });
   };
 
   onCheckboxClick = () => {
@@ -38,7 +38,10 @@ class App extends React.Component {
           onClick={this.onButtonClick}
           disabled={!this.state.checked}
         >
-          Change to {this.state.currentColor === "blue" ? "red" : "blue"}
+          Change to{" "}
+          {this.state.currentColor === "MediumVioletRed"
+            ? "Midnight Blue"
+            : "Medium Violet Red"}
         </button>
         <input
           id="disable-button-checkbox"
