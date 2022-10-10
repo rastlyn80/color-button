@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { scryRenderedComponentsWithType } from "react-dom/test-utils";
 import App from "./App";
 import { replaceCamelWithSpaces } from "./App";
 
@@ -24,7 +23,7 @@ test("button is disabled when checkbox is ticked", () => {
   const checkboxElement = screen.getByRole("checkbox");
 
   fireEvent.click(checkboxElement);
-  expect(buttonElement).not.toBeEnabled();
+  expect(buttonElement).toBeDisabled();
   expect(buttonElement).toHaveStyle({ backgroundColor: "gray" });
   fireEvent.click(checkboxElement);
   expect(buttonElement).toBeEnabled();
